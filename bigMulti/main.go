@@ -4,7 +4,7 @@ import "fmt"
 
 
 func main() {
-	fmt.Println(BigMultiply1([]int{7, 8, 9}, []int{9, 8, 7}))
+	fmt.Println(BigMultiply1([]int{7, 8, 10}, []int{9, 8, 7}))
 }
 
 // 大数相乘
