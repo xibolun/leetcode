@@ -1,10 +1,6 @@
-package main
+package string
 
 import "fmt"
-
-func main() {
-	fmt.Println(BigMultiply1([]int{7,9,1,0}, []int{1,9}))
-}
 
 // 大数相乘
 // 给两个小于1w长度的string
