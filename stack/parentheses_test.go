@@ -1,4 +1,4 @@
-package string
+package stack
 
 import (
 	"strings"
@@ -41,6 +41,7 @@ func ValidParentheses(input string) bool {
 			stack = append(stack, s)
 			continue
 		}
+		// len(stack)>0是为了处理那些以right符号开头的情况
 		if s == "]" && len(stack) > 0 && stack[len(stack)-1] == "[" ||
 			s == ")" && len(stack) > 0 && stack[len(stack)-1] == "(" ||
 			s == "}" && len(stack) > 0 && stack[len(stack)-1] == "{" {
