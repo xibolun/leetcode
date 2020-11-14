@@ -2,9 +2,8 @@ package main
 
 import "fmt"
 
-
 func main() {
-	fmt.Println(BigMultiply1([]int{7, 8, 10}, []int{9, 8, 7}))
+	fmt.Println(BigMultiply1([]int{7,9,1,0}, []int{1,9}))
 }
 
 // 大数相乘
@@ -33,7 +32,7 @@ func BigMultiply1(str1, str2 []int) []int {
 		}
 	}
 	fmt.Println(res)
-	// 需要倒序，从高位开始，除数*10留给低位
+	// 需要倒序，从高位开始，除数*10留给低位，即从右向左开始计算
 	for i := len(res) - 1; i > 0; i-- {
 		if res[i] > 10 {
 			res[i-1] += res[i] / 10
