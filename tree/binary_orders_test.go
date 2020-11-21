@@ -6,14 +6,14 @@ import (
 )
 
 func TestThreeOrders(t *testing.T) {
-	var root = &Node{
-		Left: &Node{
+	var root = &TreeNode{
+		Left: &TreeNode{
 			Left:  nil,
 			Right: nil,
 			Level: 0,
 			Val:   2,
 		},
-		Right: &Node{
+		Right: &TreeNode{
 			Left:  nil,
 			Right: nil,
 			Level: 0,
@@ -36,13 +36,13 @@ func TestThreeOrders(t *testing.T) {
 */
 var pres, ins, posts []int
 
-func threeOrders(root *Node) [][]int {
+func threeOrders(root *TreeNode) [][]int {
 	pres, ins, posts = []int{}, []int{}, []int{}
 	visit(root)
 	return [][]int{pres, ins, posts}
 }
 
-func visit(node *Node) {
+func visit(node *TreeNode) {
 	if node != nil {
 		pres = append(pres, node.Val)
 		visit(node.Left)
@@ -52,10 +52,3 @@ func visit(node *Node) {
 	}
 }
 
-// Node
-type Node struct {
-	Left  *Node
-	Right *Node
-	Level int
-	Val   int
-}
