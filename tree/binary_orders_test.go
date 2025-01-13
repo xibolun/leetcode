@@ -30,7 +30,8 @@ func TestThreeOrders(t *testing.T) {
 	fmt.Println(posts)
 }
 
-/**
+/*
+*
 对{1,2,3}的二叉树进行排序
 先序、中序、后序
 */
@@ -51,4 +52,3 @@ func visit(node *TreeNode) {
 		posts = append(posts, node.Val)
 	}
 }
-
