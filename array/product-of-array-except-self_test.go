@@ -44,11 +44,17 @@ func productExceptSelf(nums []int) []int {
 func productExceptSelf2(nums []int) []int {
 	ansi := make([]int, len(nums))
 
+	// 对于每一个数的结果都可以分成两部分的乘积，左边所有数的乘积 * 右边所有数的乘积
+
+	// 左边的乘积
+	// 正序
 	for i, p := 0, 1; i <= len(nums)-1; i++ {
 		ansi[i] = p
 		p *= nums[i]
 	}
 
+	// 右边的乘积
+	// 倒序
 	for i, p := len(nums)-1, 1; i >= 0; i-- {
 		ansi[i] *= p
 		p *= nums[i]

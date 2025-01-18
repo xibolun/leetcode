@@ -27,6 +27,7 @@ func TestMiddleNode(t *testing.T) {
 
 // - [876. 链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list/description/)
 
+// tag: link, 双指针, 快慢指针, 找链表中间节点
 // 核心思想：
 // 1. 快指针走2步，慢指针走1步
 // 2. 快指针走完的时候，慢指针就是中间节点；
