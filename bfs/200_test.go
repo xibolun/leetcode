@@ -14,7 +14,8 @@ func TestDFS(t *testing.T) {
 		{0, 0, 1, 1, 1},
 	}
 
-	fmt.Println(dfs1(grid))
+	// fmt.Println(dfs1(grid))
+	fmt.Println(numIslands(grid))
 }
 
 /**
@@ -31,7 +32,8 @@ func solve(grid [][]byte) int {
 	return dfs1(grid)
 }
 
-/**
+/*
+*
 思路1，若有一个1，说明肯定是一个岛；那就把周边的1全都清0即可
 */
 func dfs1(grid [][]byte) int {
@@ -89,25 +91,27 @@ func set0(grid [][]byte, i, j int) {
 
 }
 
-/**
+/*
+*
+// tag: 图,深度优先
 这种做法是将上、下、左、右进行了坐标化
 */
-func solve2(grid [][]byte) (ans int) {
+func numIslands(grid [][]byte) (ans int) {
 	dirs := [][]int{
-		[]int{-1, 0},
-		[]int{1, 0},
-		[]int{0, -1},
-		[]int{0, 1},
+		{-1, 0},
+		{1, 0},
+		{0, -1},
+		{0, 1},
 	}
-	var dfs func(i, j int)
-	dfs = func(i, j int) {
+	var bfs func(i, j int)
+	bfs = func(i, j int) {
 		if i < 0 || i >= len(grid) || j < 0 || j >= len(grid[0]) || grid[i][j] == '0' {
 			return
 		}
 		grid[i][j] = '0'
 		for _, d := range dirs {
 			x, y := i+d[0], j+d[1]
-			dfs(x, y)
+			bfs(x, y)
 		}
 	}
 
@@ -115,7 +119,7 @@ func solve2(grid [][]byte) (ans int) {
 		for j := range grid[i] {
 			if grid[i][j] == '1' {
 				ans++
-				dfs(i, j)
+				bfs(i, j)
 			}
 		}
 	}
