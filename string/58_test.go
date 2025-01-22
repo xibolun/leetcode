@@ -30,6 +30,7 @@ func lengthOfLastWord(s string) int {
 	ans := 0
 	for r >= 0 {
 		if s[r] == ' ' {
+			// 已经找到了对应的字符串，现在的位置是在字符串的左边空格
 			if ans > 0 {
 				break
 			}

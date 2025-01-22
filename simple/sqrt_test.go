@@ -1,8 +1,9 @@
 package simple
 
-/**
-	求平方根
- */
+/*
+*
+求平方根
+*/
 func sqrt(x int) int {
 	if x == 1 {
 		return x
