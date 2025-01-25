@@ -31,8 +31,7 @@ func thirdMax(nums []int) int {
 	// arr := make([]int,0)
 	for i := 1; i < len(nums); i++ {
 		if nums[i] >= maxv {
-			maxv,
-				thirdv = secv
+			thirdv = secv
 			secv = maxv
 			maxv = nums[i]
 		} else if nums[i] >= secv {
