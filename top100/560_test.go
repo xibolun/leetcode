@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-// tag: 前缀和
+// tag: 前缀和, 类似303
 
 func TestSubarraySum(t *testing.T) {
 	var source = []struct {

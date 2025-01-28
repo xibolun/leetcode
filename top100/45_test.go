@@ -7,12 +7,11 @@ package top100
 // 看一下灵神的解答
 func jump(nums []int) int {
 	curRight := 0
-	nextRight := 0
+	nextRight := 0 //下一座桥的右端点，即桥的最大长度
 	ans := 0
 	for i, s := range nums[:len(nums)-1] {
-
-		nextRight = max(nextRight, s+i)
-		if i == curRight {
+		nextRight = max(nextRight, s+i) // 计算下一座桥最大长度
+		if i == curRight {              // 到达当前桥的最右端，就要开始使用下一座桥了
 			curRight = nextRight
 			ans++
 		}
