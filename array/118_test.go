@@ -1,5 +1,8 @@
 package array
 
+// tag: 迭代
+// similar: 119
+
 // [1]
 // [1,1]
 // [1,2,1]

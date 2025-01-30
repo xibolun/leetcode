@@ -40,8 +40,9 @@ func TestGetRow(t *testing.T) {
 // 	return []int{}
 // }
 
+// tag: 迭代
+// similar: 118
 // 每行的第一个和最后一个都是1，其他的是上一行的[i-1]+[j-1]
-
 // 1 1
 // 1 2 1
 // 1 3 3 1
