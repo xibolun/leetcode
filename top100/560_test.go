@@ -5,7 +5,8 @@ import (
 	"testing"
 )
 
-// tag: 前缀和, 类似303
+// tag: 前缀和
+// similar: 1031/523/304
 
 func TestSubarraySum(t *testing.T) {
 	var source = []struct {
@@ -13,9 +14,9 @@ func TestSubarraySum(t *testing.T) {
 		target int
 		rse    int
 	}{
-		// {[]int{1, 1, 1}, 2, 2},
-		// {[]int{1, 2, 3}, 3, 2},
-		{[]int{-1, -1, 1}, 0, 2},
+		{[]int{1, 1, 1}, 2, 2},
+		{[]int{1, 2, 3}, 3, 2},
+		{[]int{-1, -1, 1}, 0, 1},
 	}
 
 	for _, v := range source {
@@ -29,25 +30,21 @@ func TestSubarraySum(t *testing.T) {
 // https://www.bilibili.com/video/BV1gN411E7Zx/?spm_id_from=333.337.search-card.all.click&vd_source=b5cc04f324fc9d6ee48a5febd77392fc
 
 func subarraySum(nums []int, k int) int {
-	ans := 0
+	// 构建前缀和
 	pre := make([]int, len(nums)+1)
-
-	// 先计算出前缀和
-	// 默认添加一个0出现1的前缀和，防止出现重复元素
+	// 这里要构建一个虚拟的，因为元素有可能相同，pre-k有可能会出现多次
 	pre[0] = 0
+	ans := 0
+
 	for i := 0; i < len(nums); i++ {
 		pre[i+1] = pre[i] + nums[i]
 	}
 
-	// 再算出和为k的区间列表
-	// pre[j] - pre[k] = nums[j-1]+...nums[k]
-	// 前缀和当中的 pre[j] - pre[k]的值即为[j,k]中间的元素和
-
-	// 用一个hash表来存储值
 	cnt := map[int]int{}
-	for i := 0; i < len(pre); i++ {
-		ans += cnt[pre[i]-k] //pre[i]-k若在hash表当中存在，则说明存在连续的区间和为k，这个是一个特性
-		cnt[pre[i]]++
+	// 获取前缀和与k的差值出现次数
+	for _, s := range pre {
+		ans += cnt[s-k]
+		cnt[s]++
 	}
 	return ans
 }
